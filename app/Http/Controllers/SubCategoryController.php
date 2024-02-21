@@ -6,6 +6,7 @@ use DB;
 use App\Models\category;
 use App\Models\sub_category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SubCategoryController extends Controller
 {
@@ -18,14 +19,33 @@ class SubCategoryController extends Controller
 
         $category_id = $request['category'];
         $sub_category = $request['subCategory'];
+
         $hid = $request['hid'];
 
         $subCategoryModel = new sub_category;
         if ($hid >= 1) {
             $subCategoryModel = sub_category::find($hid);
         }
+
+        if ($request->hasFile('image')) {
+
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $imageName = time() . '.' . $extension;
+
+            $uploadDirectory = 'uploads';
+
+            $uploadPath = public_path($uploadDirectory);
+
+            if (!File::exists($uploadPath)) {
+                File::makeDirectory($uploadPath, 0777, true, true);
+            }
+
+            $request->file('image')->move($uploadPath, $imageName);
+        }
+
         $subCategoryModel->category = $category_id;
         $subCategoryModel->sub_category = $sub_category;
+        $subCategoryModel->image = $imageName;
         $subCategoryModel->save();
 
         return view('backend.admin.subCategory');
@@ -52,7 +72,7 @@ class SubCategoryController extends Controller
             $temp['id'] = $value->id;
             $temp['category'] = $value->category;
             $temp['sub_category'] = $value->sub_category;
-
+            $temp['image'] = '<img src="' . asset('uploads/' . $value->image) . '" alt="Not Found!" style="max-height: 50px;">';
             $temp['action'] = '<div class="dropdown dropup d-flex justify-content-center">
                 <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="bx bx-dots-vertical-rounded"></i>
@@ -62,7 +82,6 @@ class SubCategoryController extends Controller
                 <a class="dropdown-item delete" data-id="' . $value->id . '" id="teamDelete"><i class="bx bx-trash me-1"></i> Delete</a>
                 </div>
               </div>';
-
             array_push($subCategorydata, $temp);
         }
 
@@ -93,13 +112,13 @@ class SubCategoryController extends Controller
 
         $delete = $request->all();
 
-       $delete_sub_category = sub_category::where('id', $delete['id'])->delete();
+        $delete_sub_category = sub_category::where('id', $delete['id'])->delete();
 
-       if($delete_sub_category){
-        echo "Data deleted successfully!";
-       }else{
-        echo "Issue in query!";
-       }
+        if ($delete_sub_category) {
+            echo "Data deleted successfully!";
+        } else {
+            echo "Issue in query!";
+        }
     }
 
 }

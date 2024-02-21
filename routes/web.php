@@ -40,7 +40,8 @@ Route::any('/admin/delete_sub_category_data', [SubCategoryController::class, 'de
 
 
 
-
+// product
+Route::get('/admin/product', [SubCategoryController::class, 'index'])->name('admin.product');
 
 
 

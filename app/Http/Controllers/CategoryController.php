@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use App\Models\category;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,30 @@ class CategoryController extends Controller
         $hid = $request['hid'];
 
         $categoryModel = new category;
+
+
+        if ($request->hasFile('image')) {
+
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $imageName = time() . '.' . $extension;
+
+            $uploadDirectory = 'uploads';
+
+            $uploadPath = public_path($uploadDirectory);
+
+            if (!File::exists($uploadPath)) {
+                File::makeDirectory($uploadPath, 0777, true, true);
+            }
+
+            $request->file('image')->move($uploadPath, $imageName);
+        }
+
+
         if ($hid >= 1) {
             $categoryModel = category::find($hid);
         }
         $categoryModel->category = $request->category;
+        $categoryModel->image = $imageName;
         $categoryModel->save();
 
 
@@ -29,12 +50,15 @@ class CategoryController extends Controller
     function list_data()
     {
         $categories = category::all();
+
         $data = [];
 
         foreach ($categories as $category) {
+
             $data[] = [
                 'id' => $category->id,
                 'category' => $category->category,
+                'image' => '<img src="' . asset('uploads/' . $category->image) . '" alt="Not Found!" style="max-height: 50px;">',
                 'action' => '<button id="' . $category->id . '" class="btn btn-warning edit">Edit</button> | <button id="' . $category->id . '" class="btn btn-danger delete">Delete</button>',
             ];
         }

@@ -18,6 +18,7 @@
                                 <th class="text-dark ">Id</th>
                                 <th class="text-dark ">Category</th>
                                 <th class="text-dark ">Sub Category</th>
+                                <th class="text-dark ">Image</th>
                                 <th class="text-dark ">Action</th>
                             </tr>
                         </thead>
@@ -69,6 +70,9 @@
                             data: 'sub_category'
                         },
                         {
+                            data: 'image'
+                        },
+                        {
                             data: 'action'
                         }
                     ],
@@ -104,17 +108,17 @@
 
 
             $("#subCategoryModal").on("hidden.bs.modal", function() {
-                $("#categoryform")[0].reset();
+                $("#subCategoryform")[0].reset();
                 $("#hid").val("");
-                $("#categoryform").validate().resetForm();
-                $("#categoryform").find('.error').removeClass('error');
+                $("#subCategoryform").validate().resetForm();
+                $("#subCategoryform").find('.error').removeClass('error');
             });
 
             $("#subCategoryModal").on("hidden.bs.modal", function() {
-                $("#categoryform")[0].reset();
+                $("#subCategoryform")[0].reset();
                 $("#hid").val("");
-                $("#categoryform").validate().resetForm();
-                $("#categoryform").find('.error').removeClass('error');
+                $("#subCategoryform").validate().resetForm();
+                $("#subCategoryform").find('.error').removeClass('error');
             });
 
 

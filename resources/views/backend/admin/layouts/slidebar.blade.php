@@ -113,43 +113,7 @@
           <div data-i18n="Analytics">Purchase Order</div>
         </a>
       </li>
-        <!-- Dashboard -->
-        <li class="menu-item">
-            <a href="index.html" class="menu-link text-decoration-none">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="index.html" class="menu-link text-decoration-none">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">User</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="index.html" class="menu-link text-decoration-none">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Product</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="{{ route('admin.category') }}" class="menu-link text-decoration-none">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Category</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="{{ route('admin.sub_category') }}" class="menu-link text-decoration-none">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Sub Category</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="index.html" class="menu-link text-decoration-none">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Purchase Order</div>
-            </a>
-        </li>
+    
 
 
     </ul>

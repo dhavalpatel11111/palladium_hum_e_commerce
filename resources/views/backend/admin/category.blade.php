@@ -1,8 +1,8 @@
 @extends('backend.admin.layouts.index')
 @section('admin-content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">Category</h4>
-        <div class="card p-2">
+        <h4 class="fw-bold py-3 mb-4 ps-5">Category</h4>
+        <div class="card p-2 ms-3" style="width: 1225px;">
             <div class="row gy-3">
                 <div>
                     <button type="button" class="btn btn-primary float-end ms-2 mb-2 me-4" id="addCategory">
@@ -32,6 +32,8 @@
 @endsection
 
 @section('admin-footer')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -112,7 +114,8 @@
                         contentType: false,
                         cache: false,
                         success: function(response) {
-                            console.log("We got response!");
+                    
+                   
                             $('#categoryTable').DataTable().ajax.reload();
 
                         }
@@ -170,9 +173,10 @@
                         id: deleteId
                     },
                     success: function(response) {
+                        console.log('response:', response.res);
+                        alert(response.res)
                         $('#categoryTable').DataTable().ajax.reload();
 
-                        console.log('deleted');
 
 
                     },

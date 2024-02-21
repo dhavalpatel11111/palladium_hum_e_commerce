@@ -5,7 +5,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="index.html" class="app-brand-link">
+      <a href="/admin" class="app-brand-link" style="text-decoration: none;">
         <span class="app-brand-logo demo">
           <svg
             width="25"
@@ -74,37 +74,37 @@
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="/admin" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="/admin" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">User</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="/admin" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Product</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="{{ route('admin.category') }}" class="menu-link">
+        <a href="{{ route('admin.category') }}" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Category</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="{{ route('admin.sub_category') }}" class="menu-link">
+        <a href="{{ route('admin.sub_category') }}" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Sub Category</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="index.html" class="menu-link">
+        <a href="/admin" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Purchase Order</div>
         </a>

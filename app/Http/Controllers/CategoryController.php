@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\sub_category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -30,10 +31,10 @@ class CategoryController extends Controller
     {
         $categories = category::all();
         $data = [];
-
+        $no = 0;
         foreach ($categories as $category) {
             $data[] = [
-                'id' => $category->id,
+                'id' => ++$no,
                 'category' => $category->category,
                 'action' => '<button id="' . $category->id . '" class="btn btn-warning edit">Edit</button> | <button id="' . $category->id . '" class="btn btn-danger delete">Delete</button>',
             ];
@@ -51,14 +52,20 @@ class CategoryController extends Controller
 
         return json_encode($categories);
     }
+
     function delete_data(Request $request)
     {
         $post = $request->all();
+        $id = $post['id'];
 
-        $delete = $post['id'];
+        $sub_category_data = sub_category::where("category", $id)->get()->toArray();
 
-        category::find($delete)->delete();
+        if (empty($sub_category_data)) {
+            category::find($id)->delete();
 
-        return response()->json(['res' => "data successfully delete into db"]);
+            return response()->json(['res' => "data successfully delete into db"]);
+        } else {
+            return response()->json(['res' => "This Category is Used in Sub-category So you should delete that First !"]);
+        }
     }
 }

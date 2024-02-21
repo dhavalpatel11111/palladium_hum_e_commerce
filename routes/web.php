@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\Frontend;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,11 +54,11 @@ Route::any('/admin/delete_sub_category_data', [SubCategoryController::class, 'de
 
 // frontend
 
-Route::any('/', function () {
-    return view('Frontend.index');
-});
+// Route::any('/', function () {
+//     return view('Frontend.index');
+// });
 
-
+Route::any('/' , [Frontend::class , 'index']);
 
 Route::any('/shop', function () {
     return view('Frontend.shop');
@@ -86,3 +87,9 @@ Route::any('/cart', function () {
 Route::any('/checkout', function () {
     return view('Frontend.checkout');
 });
+
+
+
+
+Route::any("/category/{id}" , [Frontend::class , "category_find"]);
+Route::any("/sub_category_data/{id}" , [Frontend::class , "sub_category_data_find"]);

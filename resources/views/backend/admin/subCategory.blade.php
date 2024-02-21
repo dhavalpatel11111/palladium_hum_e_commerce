@@ -1,7 +1,7 @@
 @extends('backend.admin.layouts.index')
 @section('admin-content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">Category</h4>
+        <h4 class="fw-bold py-3 mb-4 ps-5">SubCategory</h4>
         <div class="card p-2">
             <div class="row gy-3">
                 <div>

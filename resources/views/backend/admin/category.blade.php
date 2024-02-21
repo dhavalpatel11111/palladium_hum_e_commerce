@@ -17,6 +17,7 @@
                             <tr class="text-nowrap">
                                 <th class="text-dark ">Id</th>
                                 <th class="text-dark ">Category</th>
+                                <th class="text-dark ">Image</th>
                                 <th class="text-dark ">Action</th>
                             </tr>
                         </thead>
@@ -67,17 +68,15 @@
                         data: 'category'
                     },
                     {
+                        data: 'image'
+                    },
+                    {
                         data: 'action'
                     }
                 ],
             });
 
 
-
-
-
-
-            // teamList();
 
             $("#categoryModal").on("hidden.bs.modal", function() {
                 $("#categoryform")[0].reset();
@@ -145,16 +144,11 @@
                         id: editId,
                     },
                     success: function(response) {
-
-
                         $('#categoryModal').modal('show');
 
                         var data = JSON.parse(response);
                         $('#hid').val(data.id);
                         $('#category').val(data.category);
-
-
-
                     },
                 });
             });

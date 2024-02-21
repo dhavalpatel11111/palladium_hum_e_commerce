@@ -22,12 +22,18 @@
                         </div>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" name="image" id="image" placeholder="Enter Image">
+                    </div>
 
                     <div class="row justify-content-end">
                         <div class="col-sm-10 justify-content-end d-flex">
                             <button type="submit" id="submit" class="btn btn-primary float-right w-25">Save</button>
                         </div>
                     </div>
+
+
                 </form>
             </div>
         </div>

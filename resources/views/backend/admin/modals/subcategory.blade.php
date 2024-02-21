@@ -24,6 +24,7 @@
                             </select>
                         </div>
                     </div>
+                    
 
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-company">subCategory</label>
@@ -31,6 +32,14 @@
                             <input type="text" name="subCategory" id="subCategory" class="form-control">
                         </div>
                     </div>
+
+
+                    <div class="mb-3">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" name="image" id="image"
+                            placeholder="Enter Image">
+                    </div>
+
 
                     <div class="row justify-content-end">
                         <div class="col-sm-10 justify-content-end d-flex">

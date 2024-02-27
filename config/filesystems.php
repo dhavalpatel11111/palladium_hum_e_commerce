@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'user_images' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/upload/',
+        ],
+
     ],
 
     /*

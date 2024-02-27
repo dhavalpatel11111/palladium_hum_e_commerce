@@ -10,4 +10,6 @@ class productlisting extends Model
     use HasFactory;
 
     protected $table = 'productlistings';
+
+    protected $fillable = ['product_name', 'description', 'product_brief', 'price', 'discount_price', 'category', 'sub_category', 'quantity'];
 }

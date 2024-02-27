@@ -15,34 +15,36 @@
                     </div>
 
 
-             
+
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-company">Category</label>
                         <div class="col-sm-10">
-                            <select class="form-select" aria-label="Default select example" id="category"
-                                name="category">
+                            <select class="form-select" aria-label="Default select example" id="category" name="category">
                             </select>
                         </div>
                     </div>
-                    
+
 
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">subCategory</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Sub-Category</label>
                         <div class="col-sm-10">
-                            <input type="text" name="subCategory" id="subCategory" class="form-control">
+                            <input type="text" name="subCategory" id="subCategory" class="form-control" placeholder="Sub-Category">
                         </div>
                     </div>
 
 
-                    <div class="mb-3">
-                        <label for="image">Image</label>
-                        <input type="file" class="form-control" name="image" id="image"
-                            placeholder="Enter Image">
+                    <div class=" row mb-3">
+                        <label class="col-sm-2 col-form-label" for="image">Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image" id="image" placeholder="Enter Image">
+                        </div>
+
                     </div>
 
 
                     <div class="row justify-content-end">
                         <div class="col-sm-10 justify-content-end d-flex">
+                        <button type="button" class="btn btn-secondary" style="margin-right: 10px;"  data-bs-dismiss="modal">Close</button>
                             <button type="submit" id="submit" class="btn btn-primary float-right w-25">Save</button>
                         </div>
                     </div>

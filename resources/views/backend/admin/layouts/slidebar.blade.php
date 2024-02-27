@@ -6,7 +6,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
       <a href="/admin" class="app-brand-link" style="text-decoration: none;">
-        <span class="app-brand-logo demo">
+        <!-- <span class="app-brand-logo demo">
           <svg
             width="25"
             viewBox="0 0 25 42"
@@ -60,19 +60,14 @@
               </g>
             </g>
           </svg>
-        </span>
-        <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+        </span> -->
+        <span class="h3 fw-bolder ms-2">Admin</span>
       </a>
-        <a href="index.html" class="app-brand-link text-decoration-none">
-            <span class="app-brand-text text-large menu-text fw-bolder ms-2">Admin Panel</span>
-        </a>
 
-        <a href="javascript:void(0);"
-            class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-            <i class="bx bx-chevron-left bx-sm align-middle"></i>
-        </a>
+
+   
     </div>
-
+<hr style="height: 3px; color: black; margin: 10px;">
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
@@ -84,7 +79,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="/admin" class="menu-link" style="text-decoration: none;">
+        <a href="/admin/user" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">User</div>
         </a>
@@ -114,7 +109,12 @@
         </a>
       </li>
     
-
+      <li class="menu-item">
+        <a href="/admin/Inventory" class="menu-link" style="text-decoration: none;">
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">Inventory</div>
+        </a>
+      </li>
 
     </ul>
 </aside>

@@ -84,9 +84,12 @@
             $('form[id="subCategoryform"]').validate({
                 rules: {
                     name: "required",
+                    subCategory: "required",
                 },
                 messages: {
                     name: 'This field is required',
+                    subCategory: "Plz select Category",
+
                 },
                 submitHandler: function() {
                     var formData = new FormData($("#subCategoryform")[0]);
@@ -144,7 +147,7 @@
                 },
                 success: function(response) {
                     var categoryOption = "";
-                    categoryOption += '<option value="" selected="selected">' + "Please select role" +
+                    categoryOption += '<option value="" selected disabled>' + "Please select role" +
                         '</option>'
                     for (let i = 0; i < response.length; i++) {
                         categoryOption += '<option value="' + response[i].id + '">' + response[i]

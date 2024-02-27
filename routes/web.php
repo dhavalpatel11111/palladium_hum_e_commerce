@@ -1,8 +1,11 @@
 <?php
 
-
+use App\Http\Controllers\adminUserContriller;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\InventoryController;
+use App\Models\User;
+use App\Models\category;
 use App\Http\Controllers\Frontend;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 // Admin
 Route::any('/admin', function () {
-    return view('backend/admin/content');
+    $User = User::count();
+    $category = category::count();
+    
+    return view('backend/admin/content')->with(compact('User','category'));
 });
 
 // category
@@ -46,7 +52,15 @@ Route::get('/admin/product', [SubCategoryController::class, 'index'])->name('adm
 
 
 
+// user
+Route::get("/admin/user" , [adminUserContriller::class , 'index']);
+Route::any('/admin/Add_user', [adminUserContriller::class, 'Add_user']);
+Route::any('/admin/user_list', [adminUserContriller::class, 'user_list']);
+Route::any('/admin/edit_user', [adminUserContriller::class, 'edit_user']);
+Route::any('/admin/delete_user', [adminUserContriller::class, 'delete_user']);
 
+// Inventory
+Route::get("/admin/Inventory" , [InventoryController::class , 'index']);
 
 
 
@@ -87,6 +101,14 @@ Route::any('/cart', function () {
 
 Route::any('/checkout', function () {
     return view('Frontend.checkout');
+});
+
+Route::any('/seller', function () {
+    return view('Frontend.seller');
+});
+
+Route::any('/thankyou', function () {
+    return view('Frontend.thankyou');
 });
 
 

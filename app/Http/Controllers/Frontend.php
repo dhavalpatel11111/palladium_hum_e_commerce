@@ -19,8 +19,9 @@ class Frontend extends Controller
     public function category_find($id)
     {
         $sub_category_data = sub_category::where("category" , $id)->get()->toArray();
-   
-       return  view("Frontend.category")->with(compact('sub_category_data'));
+        $category =  category::where("id" , $id)->get()->toArray();
+
+       return  view("Frontend.category")->with(compact('sub_category_data' , 'category'));
     }
 
     public function sub_category_data_find($id)

@@ -60,7 +60,7 @@ class CategoryController extends Controller
                 'id' => ++$no,
                 'category' => $category->category,
                 'image' => '<img src="' . asset('uploads/' . $category->image) . '" alt="Not Found!" style="max-height: 50px;">',
-                'action' => '<button id="' . $category->id . '" class="btn btn-warning edit">Edit</button> | <button id="' . $category->id . '" class="btn btn-danger delete">Delete</button>',
+                'action' => '<button id="' . $category->id . '" class="btn btn-warning edit">Edit</button> ||  <button id="' . $category->id . '" class="btn btn-danger delete">Delete</button>',
             ];
         }
 

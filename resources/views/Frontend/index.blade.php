@@ -25,11 +25,13 @@
 	<title>Swift Cart E-commerce Developed By D/U</title>
 
 	<style>
-		.start_img{
+		.start_img {
 			transition: all 0.9s;
 		}
-		.start_img:hover{
+
+		.start_img:hover {
 			scale: 1.02;
+			filter: drop-shadow(0 0 10px gray);
 		}
 	</style>
 </head>
@@ -40,7 +42,7 @@
 	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 		<div class="container">
-			<a class="navbar-brand" href="/">Furni<span>.</span></a>
+			<a class="navbar-brand" href="/">Swift Cart <br><span><small>Developed by Palladium Hub</small></span></a>
 
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -56,6 +58,7 @@
 					<li><a class="nav-link" href="/services">Services</a></li>
 					<li><a class="nav-link" href="/blog">Blog</a></li>
 					<li><a class="nav-link" href="/contact">Contact us</a></li>
+					<li><a class="nav-link" href="/seller">Become Seller</a></li>
 				</ul>
 
 				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -74,14 +77,14 @@
 			<div class="row justify-content-between">
 				<div class="col-lg-5">
 					<div class="intro-excerpt">
-						<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
+						<h1>Modern Cloths <span clsas="d-block">Design Studio</span></h1>
 						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-						<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+						<p><a href="#popular-product" class="btn btn-secondary me-2">Shop Now</a><a href="#Category" class="btn btn-white-outline">Explore</a></p>
 					</div>
 				</div>
 				<div class="col-lg-7">
 					<div class="hero-img-wrap ">
-						<img src="images/start-img.jpg" class="start_img" width="780px" height="400px" style="margin-top: 80px; border-radius: 10px ;filter: drop-shadow(0 0 10px gray);">
+						<img src="images/start-img.jpg" class="start_img" width="780px" height="400px" style="margin-top: 80px; border-radius: 10px;">
 						<!-- <img src="" class="img-fluid"> -->
 					</div>
 				</div>
@@ -100,17 +103,25 @@
 	// print_r($category);
 	// die;
 	?>
-	<div class="product-section">
-		<div class="container">
-			<div class="row">
+	<div class="product-section" id="Category">
+		<div class="container d-flex align-items-center justify-content-center flex-wrap">
+			<div class="row pb-5">
+				<div class="col-lg-7 mx-auto text-center">
+					<h2 class="section-title">Category</h2>
+				</div>
+			</div>
+			<div class="container d-flex align-items-center justify-content-center flex-wrap">
+
+
 				<?php
 				for ($i = 0; $i < count($category); $i++) {
-			
+
+
 				?>
 
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+					<div class="card m-5 border-0 " style="width: 200px; background: none;">
 						<a class="product-item" href="/category/<?php echo $category[$i]['id']; ?>">
-							<img src="images/product-1.png" class="img-fluid product-thumbnail ">
+							<img src="<?php echo asset("/uploads/" . $category[$i]['image']) ?>" height="250px" width="170px" class="rounded">
 							<h4 class="product-title"><?php echo $category[$i]['category']; ?></h4>
 							<!-- <strong class="product-price">$50.00</strong> -->
 
@@ -126,8 +137,8 @@
 
 				}
 				?>
-
 			</div>
+
 		</div>
 	</div>
 	<!-- category end -->
@@ -141,7 +152,7 @@
 				<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
 					<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
 					<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
-					<p><a href="/shop" class="btn">Explore</a></p>
+					<p><a href="#popular-product" class="btn">Explore</a></p>
 				</div>
 				<!-- End Column 1 -->
 
@@ -192,100 +203,11 @@
 	</div>
 	<!-- End Product Section -->
 
-	<!-- Start Why Choose Us Section -->
-	<!-- <div class="why-choose-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-6">
-						<h2 class="section-title">Why Choose Us</h2>
-						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
 
-						<div class="row my-5">
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/truck.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Fast &amp; Free Shipping</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/bag.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Easy to Shop</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/support.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>24/7 Support</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/return.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Hassle Free Returns</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-					<div class="col-lg-5">
-						<div class="img-wrap">
-							<img src="images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div> -->
-	<!-- End Why Choose Us Section -->
-
-	<!-- Start We Help Section -->
-	<!-- <div class="we-help-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-7 mb-5 mb-lg-0">
-						<div class="imgs-grid">
-							<div class="grid grid-1"><img src="images/img-grid-1.jpg" alt="Untree.co"></div>
-							<div class="grid grid-2"><img src="images/img-grid-2.jpg" alt="Untree.co"></div>
-							<div class="grid grid-3"><img src="images/img-grid-3.jpg" alt="Untree.co"></div>
-						</div>
-					</div>
-					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
-						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-
-						<ul class="list-unstyled custom-list my-4">
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-						</ul>
-						<p><a herf="#" class="btn">Explore</a></p>
-					</div>
-				</div>
-			</div>
-		</div> -->
-	<!-- End We Help Section -->
 
 	<!-- Start Popular Product -->
 
-	<div class="popular-product">
+	<div class="popular-product" id="popular-product">
 		<div class="container">
 
 			<div class="row pb-5">

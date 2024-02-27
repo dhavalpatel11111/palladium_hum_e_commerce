@@ -6,7 +6,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
       <a href="/admin" class="app-brand-link" style="text-decoration: none;">
-        <!-- <span class="app-brand-logo demo">
+         <span class="app-brand-logo demo">
           <svg
             width="25"
             viewBox="0 0 25 42"
@@ -60,7 +60,7 @@
               </g>
             </g>
           </svg>
-        </span> -->
+        </span>
         <span class="h3 fw-bolder ms-2">Admin</span>
       </a>
 

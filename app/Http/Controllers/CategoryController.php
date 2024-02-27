@@ -42,7 +42,15 @@ class CategoryController extends Controller
             $categoryModel = category::find($hid);
         }
         $categoryModel->category = $request->category;
-        $categoryModel->image = $imageName;
+
+        if ($hid >= 1 && empty($request->hasFile('image'))) {
+            $imageTableData = category::select('image')->where('id', $hid)->get();
+            $imageData = $imageTableData[0]['image'];
+            $categoryModel->image = $imageData;
+        } else {
+            $categoryModel->image = $imageName;
+        }
+
         $categoryModel->save();
 
 

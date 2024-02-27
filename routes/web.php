@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\adminUserContriller;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductlistingController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\InventoryController;
 use App\Models\User;
 use App\Models\category;
 use App\Http\Controllers\Frontend;
+use App\Models\productlisting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +50,15 @@ Route::any('/admin/delete_sub_category_data', [SubCategoryController::class, 'de
 
 
 // product
-Route::get('/admin/product', [SubCategoryController::class, 'index'])->name('admin.product');
+Route::any('/admin/product', [ProductlistingController::class, 'index'])->name('admin.productlisting');
+Route::any('/admin/product_listing_image', [ProductlistingController::class, 'productImg'])->name('admin.productlistingImg');
+Route::any('/admin/sub_category_data', [ProductlistingController::class, 'subCategory'])->name('admin.sub_category_data');
+Route::any('/admin/productlisting_save', [ProductlistingController::class, 'productlisting_save'])->name('admin.productlisting_save');
+Route::any('/admin/productlisting_listing', [ProductlistingController::class, 'productlisting_listing'])->name('admin.productlisting_listing');
+Route::any('/admin/productlisting_edit', [ProductlistingController::class, 'productlisting_edit'])->name('admin.productlisting_edit');
+Route::any('productlisting/delete', [ProductlistingController::class, 'dropzoneDelete'])->name('dropzone.delete');
+Route::any('productlisting/delete_data', [ProductlistingController::class, 'delete_data'])->name('admin.productlisting_delete');
+Route::any('productlisting/removeButtonDZ', [ProductlistingController::class, 'removeButtonDZ'])->name('admin.removeButtonDZ');
 
 
 
@@ -73,7 +83,7 @@ Route::get("/admin/Inventory" , [InventoryController::class , 'index']);
 //     return view('Frontend.index');
 // });
 
-Route::any('/' , [Frontend::class , 'index']);
+Route::any('/', [Frontend::class, 'index']);
 
 Route::any('/shop', function () {
     return view('Frontend.shop');
@@ -114,5 +124,5 @@ Route::any('/thankyou', function () {
 
 
 
-Route::any("/category/{id}" , [Frontend::class , "category_find"]);
-Route::any("/sub_category_data/{id}" , [Frontend::class , "sub_category_data_find"]);
+Route::any("/category/{id}", [Frontend::class, "category_find"]);
+Route::any("/sub_category_data/{id}", [Frontend::class, "sub_category_data_find"]);

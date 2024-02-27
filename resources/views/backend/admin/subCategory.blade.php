@@ -38,9 +38,6 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
-        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function() {
 
@@ -105,22 +102,21 @@
                             $('#subCategoryTable').DataTable().ajax.reload();
                         }
                     });
-                },
-            });
+                })
 
 
 
             $("#subCategoryModal").on("hidden.bs.modal", function() {
                 $("#subCategoryform")[0].reset();
                 $("#hid").val("");
-                $("#subCategoryform").validate().resetForm();
+                $("#subCategoryform").resetForm();
                 $("#subCategoryform").find('.error').removeClass('error');
             });
 
             $("#subCategoryModal").on("hidden.bs.modal", function() {
                 $("#subCategoryform")[0].reset();
                 $("#hid").val("");
-                $("#subCategoryform").validate().resetForm();
+                $("#subCategoryform").resetForm();
                 $("#subCategoryform").find('.error').removeClass('error');
             });
 
@@ -188,8 +184,6 @@
             $(document).on('click', '.delete', function() {
 
                 var deleteId = this.getAttribute('data-id');
-
-                console.log(deleteId);
 
                 $.ajax({
                     type: "post",

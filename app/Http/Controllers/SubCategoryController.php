@@ -45,7 +45,14 @@ class SubCategoryController extends Controller
 
         $subCategoryModel->category = $category_id;
         $subCategoryModel->sub_category = $sub_category;
-        $subCategoryModel->image = $imageName;
+
+        if ($hid >= 1 && empty($request->hasFile('image'))) {
+            $imageTableData = sub_category::select('image')->where('id', $hid)->get();
+            $imageData = $imageTableData[0]['image'];
+            $subCategoryModel->image = $imageData;
+        } else {
+            $subCategoryModel->image = $imageName;
+        }
         $subCategoryModel->save();
 
         return view('backend.admin.subCategory');

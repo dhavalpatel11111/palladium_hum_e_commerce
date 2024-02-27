@@ -85,9 +85,9 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="/admin" class="menu-link" style="text-decoration: none;">
+        <a href="{{ route('admin.productlisting') }}" class="menu-link" style="text-decoration: none;">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Product</div>
+          <div data-i18n="Analytics">Product Listing</div>
         </a>
       </li>
       <li class="menu-item">

@@ -1,181 +1,180 @@
 @extends('backend.admin.layouts.index')
 @section('admin-content')
-    <style>
-        .imglist {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-            flex-wrap: wrap;
-        }
+<style>
+    .imglist {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        flex-wrap: wrap;
+    }
 
-        .image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-            margin: 27px;
-        }
-    </style>
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        margin: 27px;
+    }
+</style>
 
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4 ps-5">Category</h4>
-        <div class="card p-2 ms-3" style="width: 1225px;">
-            <div class="row gy-3">
-                <div>
-                    <button type="button" class="btn btn-primary float-end ms-2 mb-2 me-4" id="listProduct">
-                        Add Product
-                    </button>
-                </div>
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4 ps-5">Category</h4>
+    <div class="card p-2 ms-3" style="width: 1225px;">
+        <div class="row gy-3">
+            <div>
+                <button type="button" class="btn btn-primary float-end ms-2 mb-2 me-4" id="listProduct">
+                    Add Product
+                </button>
             </div>
-            <div class="card-body">
-                <div class="table-responsive text-nowrap">
-                    <table class="table pt-2 " id="productlistingTable">
-                        <thead class="table-light  mt-3">
-                            <tr class="text-nowrap">
-                                <th class="text-dark ">Id</th>
-                                <th class="text-dark ">Product Name</th>
-                                <th class="text-dark ">Description</th>
-                                <th class="text-dark ">Discount Price</th>
-                                <th class="text-dark ">Product Brief</th>
-                                <th class="text-dark ">Price</th>
-                                <th class="text-dark ">Category</th>
-                                <th class="text-dark ">SubCategory</th>
-                                <th class="text-dark ">Quantity</th>
-                                <th class="text-dark ">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table pt-2 " id="productlistingTable">
+                    <thead class="table-light  mt-3">
+                        <tr class="text-nowrap">
+                            <th class="text-dark ">Id</th>
+                            <th class="text-dark ">Product Name</th>
+                            <th class="text-dark ">Description</th>
+                            <th class="text-dark ">Discount Price</th>
+                            <th class="text-dark ">Product Brief</th>
+                            <th class="text-dark ">Price</th>
+                            <th class="text-dark ">Category</th>
+                            <th class="text-dark ">SubCategory</th>
+                            <th class="text-dark ">Quantity</th>
+                            <th class="text-dark ">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
-    @include('backend.admin.modals.productlistingModal');
+@include('backend.admin.modals.productlistingModal');
 @endsection
 
 @section('admin-footer')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
-        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        Dropzone.autoDiscover = false;
-        $(document).ready(function() {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    Dropzone.autoDiscover = false;
+    $(document).ready(function() {
 
-            $(document).on('click', '#listProduct', function() {
-                $('#productlistingModal').modal('show');
-            });
+        $(document).on('click', '#listProduct', function() {
+            $('#productlistingModal').modal('show');
+        });
 
 
+        var headers = $('meta[name="csrf-token"]').attr('content');
+
+        $(function() {
             var headers = $('meta[name="csrf-token"]').attr('content');
 
-            $(function() {
-                    var headers = $('meta[name="csrf-token"]').attr('content');
+            var myDropzone = new Dropzone("div#dropzoneDragArea", {
+                paramName: "file",
+                url: "{{ route('admin.productlistingImg') }}",
+                acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                maxFileSize: 24,
+                addRemoveLinks: true,
+                uploadMultiple: true,
+                parallelUploads: 10,
+                maxFiles: 24,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                init: function() {
+                    this.on('dz_complete', function(file) {
+                        $('.dz-preview').remove();
+                    })
 
-                    var myDropzone = new Dropzone("div#dropzoneDragArea", {
-                            paramName: "file",
-                            url: "{{ route('admin.productlistingImg') }}",
-                            acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                            maxFileSize: 24,
-                            addRemoveLinks: true,
-                            uploadMultiple: true,
-                            parallelUploads: 10,
-                            maxFiles: 24,
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            init: function() {
-                                this.on('dz_complete', function(file) {
-                                    $('.dz-preview').remove();
-                                })
+                    this.on("addedfile", function(file) {
+                        var dropzone = this;
+                        clearDropzone = function() {
+                            dropzone.removeAllFiles(true);
+                        };
 
-                                this.on("addedfile", function(file) {
-                                    var dropzone = this;
-                                    clearDropzone = function() {
-                                        dropzone.removeAllFiles(true);
-                                    };
-
-                                });
-                                this.on("removedfile", function(file) {
-                                    file.previewElement.remove();
-                                });
-
-                                this.on('sending', function(file, xhr, formData) {
-                                    let hidden_id = $('#hid').val();
-                                    formData.append("id", hidden_id)
-                                });
-
-                                this.on("successmultiple", function(file,
-                                    responseText) {
-                                    let dropzoneImg = responseText.allimg
-
-                                    let dropzoneImgfinal = dropzoneImg;
-
-                                    let editImg = $("#allimg").val();
-
-                                    $('#folder').val(responseText.tempFolder);
-
-                                    let editImgLength = editImg.length;
-
-                                    // hidden Img set condition
-
-                                    if (editImgLength > 1) {
-                                        $('#allimg').val(dropzoneImg + ',' +
-                                            editImg);
-                                    } else {
-                                        $('#allimg').val(dropzoneImg);
-
-                                    }
-
-                                    console.log('tempFolder', responseText.tempFolder);
-
-
-                                    // removeButtonDZ()
-
-                                });
-
-                                // function removeButtonDZ(tempFolder) {
-                                // this.on('removedfile', function(file) {
-                                // $folder = $('#folder').val()
-
-                                // $.ajax({
-                                //     type: "POST",
-                                //     url: "{{ route('admin.removeButtonDZ') }}",
-                                //     headers: {
-                                //         'X-CSRF-TOKEN': $(
-                                //                 'meta[name="csrf-token"]')
-                                //             .attr('content')
-                                //     },
-                                //     data: {
-                                //         target_file: file.name,
-                                //         type: "removeButtonDZ"
-                                //     }
-                                // });
-
-                                // console.log('tempFolder', tempFolder);
-
-                                // });
-                            }
-
-                            $(document).on('hidden.bs.modal', '.modal', function() {
-                                myDropzone.removeAllFiles(
-                                    true);
-                            });
-                        })
+                    });
+                    this.on("removedfile", function(file) {
+                        file.previewElement.remove();
                     });
 
-                
-            });
-        
+                    this.on('sending', function(file, xhr, formData) {
+                        let hidden_id = $('#hid').val();
+                        formData.append("id", hidden_id)
+                    });
+
+                    this.on("successmultiple", function(file,
+                        responseText) {
+                        let dropzoneImg = responseText.allimg
+
+                        let dropzoneImgfinal = dropzoneImg;
+
+                        let editImg = $("#allimg").val();
+
+                        $('#folder').val(responseText.tempFolder);
+
+                        let editImgLength = editImg.length;
+
+                        // hidden Img set condition
+
+                        if (editImgLength > 1) {
+                            $('#allimg').val(dropzoneImg + ',' +
+                                editImg);
+                        } else {
+                            $('#allimg').val(dropzoneImg);
+
+                        }
+
+                        console.log('tempFolder', responseText.tempFolder);
+
+
+                        // removeButtonDZ()
+
+                    });
+
+                    // function removeButtonDZ(tempFolder) {
+                    // this.on('removedfile', function(file) {
+                    // $folder = $('#folder').val()
+
+                    // $.ajax({
+                    //     type: "POST",
+                    //     url: "{{ route('admin.removeButtonDZ') }}",
+                    //     headers: {
+                    //         'X-CSRF-TOKEN': $(
+                    //                 'meta[name="csrf-token"]')
+                    //             .attr('content')
+                    //     },
+                    //     data: {
+                    //         target_file: file.name,
+                    //         type: "removeButtonDZ"
+                    //     }
+                    // });
+
+                    // console.log('tempFolder', tempFolder);
+
+                    // });
+                    $(document).on('hidden.bs.modal', '.modal', function() {
+                        myDropzone.removeAllFiles(
+                            true);
+                    });
+
+                }
+
+            })
+        });
+
+
+
+
+
+
 
 
         var categoryData = $.ajax({
@@ -429,6 +428,6 @@
             });
         });
 
-        });
-    </script>
+    });
+</script>
 @endsection

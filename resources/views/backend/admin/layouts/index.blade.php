@@ -45,7 +45,6 @@
     {{-- dropzone --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.min.css">
 
-<<<<<<< HEAD
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css">
 
@@ -80,9 +79,7 @@
             background-color: black;
         } */
     </style>
-=======
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css">
->>>>>>> 5548c35cb50c2bb687333f7da1e4a113527eb7e9
 
 </head>
 
